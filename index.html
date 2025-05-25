@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Developer</title>
+<!-- Logo -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/491929525_122095341314890978_9053690679084921788_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=R0htHLF9lzEQ7kNvwENzOcQ&_nc_oc=AdkT5C2edhIenVE3Ay_NjJzTzUOREOfWpT78ULHVOUM-iQQZd2A11ufElgW5HwdZ9pE&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=Tt_A597la_JEJ7QV8K9Onw&oh=00_AfIPEF6JU6RwuYPjeVAywBetuFMVirbTawD3wjoJnJTVzQ&oe=6838C222' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='24' fill='%23ffc107'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-size='22' font-family='Segoe UI,Arial,sans-serif' fill='%23222'%3EW%3C/text%3E%3C/svg%3E">
+<!-- Additional Styles -->
+<style>
+    /* Add a subtle gradient background to the body */
+    body {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e3e6ea 100%);
+    }
+
+    /* Add a border and shadow to the header */
+    header {
+        border-bottom: 4px solid #ffc107;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    /* Add hover effect to service and portfolio cards */
+    .services li,
+    .portfolio li {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .services li:hover,
+    .portfolio li:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+        background-color: #fffbe6;
+    }
+
+    /* Add focus style for accessibility */
+    nav a:focus {
+        outline: 2px solid #ffc107;
+        outline-offset: 2px;
+        background: #333;
+    }
+
+    /* Style placeholder text in contact form */
+    .contact input::placeholder,
+    .contact textarea::placeholder {
+        color: #888;
+        opacity: 1;
+    }
+
+    /* Add a subtle animation to section headings */
+    h2 {
+        position: relative;
+        animation: fadeInDown 0.7s;
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #222;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .about,
+    .services,
+    .portfolio,
+    .contact {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      margin-bottom: 40px;
+    }
+
+    .services ul,
+    .portfolio ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .services li,
+    .portfolio li {
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact input, .contact textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: none;
+    }
+
+    .contact button {
+      padding: 10px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .contact button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: row; /* Ensure icons are displayed in a single row */
+        gap: 15px; /* Adjust spacing between icons */
+      }
+
+      section {
+        padding: 40px 10px;
+      }
+
+      h1, h2 {
+        font-size: 1.5rem;
+      }
+
+      .services ul,
+      .portfolio ul {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Add margin-top to #home section */
+    #home {
+      margin-top: 1px; /* Add space at the top of the home page */
+    }
+</style>
+    </head>
+    <body>
+
+  <header>
+    <h1>Web Developer</h1>
+    <nav>
+
+  </style>
+    </head>
+    <body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script>
+  <nav role="navigation" aria-label="Main Navigation">
+    <ul>
+      <li>
+        <a href="#home">
+          <!-- Home Icon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24" style="vertical-align: middle; color: #ffcc00;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="#about">
+          <!-- About Icon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24" style="vertical-align: middle; color: #ffcc00;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="#services">
+          <!-- services Icon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24" style="vertical-align: middle; color: #ffcc00;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="#portfolio">
+          <!-- portfolio Icon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24" style="vertical-align: middle; color: #ffcc00;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="#contact">
+          <!-- contact Icon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24" style="vertical-align: middle; color: #ffcc00;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+          </svg>
+        </a>
+      </li>
+      <li>
+    </nav>
+  </header>
+  <main>
+    <!-- Home Section -->
+    <section id="home" style="background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); border-radius: 12px; box-shadow: 0 4px 24px rgba(140, 120, 255, 0.08); padding: 60px 30px 50px 30px; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="font-size: 2.2rem; font-weight: 700; color: #333; margin-bottom: 16px; letter-spacing: 1px;">
+        Welcome to My Web Development Portfolio
+      </h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: #444; line-height: 1.7;">
+        I build professional websites using modern, clean, and traditional design principles. Let's turn your vision into a fully functional and secure web presence.
+      </p>
+      <a href="#contact" style="margin-top: 32px; padding: 12px 36px; background: linear-gradient(90deg, #ffb347 0%, #ffcc33 100%); color: #222; font-weight: 600; border: none; border-radius: 25px; font-size: 1.1rem; box-shadow: 0 2px 12px rgba(255, 188, 66, 0.13); text-decoration: none; transition: background 0.2s, transform 0.2s;">
+        Contact Me
+      </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about" style="font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%); border-radius: 14px; box-shadow: 0 6px 28px rgba(170, 193, 238, 0.13); margin-bottom: 40px;">
+      <h2 style="font-size: 2.2rem; font-weight: 800; color: #222; letter-spacing: 1.5px; margin-bottom: 22px; text-shadow: 0 2px 8px rgba(170,193,238,0.08);">
+        About Me
+      </h2>
+      <p style="font-size: 1.18rem; color: #444; line-height: 1.85; text-align: center; max-width: 720px; margin: 0 auto 22px auto; background: linear-gradient(90deg, #e0c3fc 0%, #fbc2eb 100%); padding: 22px 28px; border-radius: 10px; box-shadow: 0 4px 18px rgba(140,120,255,0.10); border-left: 5px solid #ffb347;">
+        I’m a passionate web developer with expertise in <span style="color: #007bff; font-weight: 600;">HTML</span>, <span style="color: #ff9800; font-weight: 600;">CSS</span>, <span style="color: #43a047; font-weight: 600;">JavaScript</span>, <span style="color: #7952b3; font-weight: 600;">PHP</span>, and <span style="color: #1565c0; font-weight: 600;">MySQL</span>. I focus on building fast, secure, and responsive websites for businesses and individuals.
+      </p>
+      <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; list-style: none; margin: 22px 0 0 0; padding: 0;">
+        <li style="background: linear-gradient(100deg, #e3f2fd 0%, #fffbe6 100%); padding: 14px 26px; border-radius: 8px; font-size: 1.08rem; font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: transform 0.18s, box-shadow 0.18s; border-bottom: 3px solid #007bff;">
+          <span style="color: #007bff;">Front-end Development</span>
+        </li>
+        <li style="background: linear-gradient(100deg, #ede7f6 0%, #f1f1f1 100%); padding: 14px 26px; border-radius: 8px; font-size: 1.08rem; font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: transform 0.18s, box-shadow 0.18s; border-bottom: 3px solid #7952b3;">
+          <span style="color: #7952b3;">Back-end Coding</span>
+        </li>
+        <li style="background: linear-gradient(100deg, #f1f8e9 0%, #f1f1f1 100%); padding: 14px 26px; border-radius: 8px; font-size: 1.08rem; font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: transform 0.18s, box-shadow 0.18s; border-bottom: 3px solid #43a047;">
+          <span style="color: #43a047;">UI/UX Design</span>
+        </li>
+        <li style="background: linear-gradient(100deg, #fff3e0 0%, #f1f1f1 100%); padding: 14px 26px; border-radius: 8px; font-size: 1.08rem; font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: transform 0.18s, box-shadow 0.18s; border-bottom: 3px solid #ff9800;">
+          <span style="color: #ff9800;">Performance Optimization</span>
+        </li>
+      </ul>
+      <div style="margin-top: 32px; display: flex; justify-content: center;">
+        <video width="420" autoplay loop muted style="border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.11); border: 3px solid #fffbe6;">
+          <source src="https://cdn.pixabay.com/video/2025/05/24/281272.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <style>
+        /* Extra About Section Styles */
+        #about ul li:hover {
+          transform: translateY(-6px) scale(1.04);
+          box-shadow: 0 8px 28px rgba(140,120,255,0.13);
+          background: #fffbe6;
+        }
+        #about video {
+          transition: box-shadow 0.2s, border-color 0.2s;
+        }
+        #about video:hover {
+          box-shadow: 0 8px 32px rgba(140,120,255,0.18);
+          border-color: #ffb347;
+        }
+        @media (max-width: 700px) {
+          #about ul {
+            flex-direction: column;
+            gap: 14px;
+          }
+          #about video {
+            width: 98vw;
+            max-width: 98vw;
+          }
+        }
+      </style>
+    </section>
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
+    <!-- Services Section -->
+    <section class="services" id="services" style="background: linear-gradient(100deg, #fbc2eb 0%, #a6c1ee 100%); border-radius: 12px; box-shadow: 0 4px 20px rgba(170, 193, 238, 0.09);">
+      <h2 style="font-size: 2rem; font-weight: 700; color: #222; margin-bottom: 20px; letter-spacing: 1px;">
+        My Services
+      </h2>
+      <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; list-style: none; padding: 0;">
+        <li style="background: #fffbe6; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(255,204,51,0.08); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; align-items: center; gap: 10px;">
+          <span style="color: #ffb347; font-size: 1.4em;">&#9733;</span> Responsive Website Design
+        </li>
+        <li style="background: #e3f2fd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(100,181,246,0.07); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; align-items: center; gap: 10px;">
+          <span style="color: #64b5f6; font-size: 1.4em;">&#128187;</span> Custom PHP Development
+        </li>
+        <li style="background: #f1f8e9; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(76,175,80,0.07); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; align-items: center; gap: 10px;">
+          <span style="color: #43a047; font-size: 1.4em;">&#128451;</span> MySQL Database Integration
+        </li>
+        <li style="background: #fff3e0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(255,183,77,0.07); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; align-items: center; gap: 10px;">
+          <span style="color: #ff9800; font-size: 1.4em;">&#128269;</span> SEO Optimization
+        </li>
+        <li style="background: #ede7f6; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(121,85,183,0.07); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; align-items: center; gap: 10px;">
+          <span style="color: #7952b3; font-size: 1.4em;">&#128179;</span> E-commerce Solutions
+        </li>
+        <li style="background: #fce4ec; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(236,64,122,0.07); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; align-items: center; gap: 10px;">
+          <span style="color: #ec407a; font-size: 1.4em;">&#9881;&#65039;</span> Maintenance & Updates
+        </li>
+      </ul>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio" style="background: linear-gradient(100deg, #a6c1ee 0%, #fbc2eb 100%); border-radius: 12px; box-shadow: 0 4px 20px rgba(170, 193, 238, 0.09); margin-bottom: 40px; text-align: center;">
+      <h2 style="font-size: 2rem; font-weight: 700; color: #222; margin-bottom: 20px; letter-spacing: 1px; text-align: center;">
+        Portfolio
+      </h2>
+      <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; list-style: none; padding: 0; text-align: center;">
+        <li style="background: #fffbe6; padding: 22px 18px; border-radius: 8px; box-shadow: 0 2px 10px rgba(255,204,51,0.08); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.2s, box-shadow 0.2s; text-align: center;">
+          <span style="color: #ffb347; font-size: 1.3em;">&#128188;</span>
+          Business Website
+            <a href="https://jahidads.github.io/business-portfolio/#" target="_blank" style="margin-top: 10px; color: #007bff; font-weight: 700; text-decoration: none; border-bottom: 2px solid #ffb347; padding-bottom: 2px; border-radius: 4px; background: linear-gradient(90deg, #fffbe6 60%, #e3f2fd 100%); box-shadow: 0 2px 8px rgba(0,123,255,0.08); transition: background 0.2s, color 0.2s, box-shadow 0.2s; text-align: center; display: inline-block;">
+              View Project
+            </a>
+            <span style="display: inline-block; margin-top: 10px; background: linear-gradient(90deg, #e3f2fd 60%, #fffbe6 100%); color: #007bff; font-size: 1em; font-weight: 600; padding: 6px 18px; border-radius: 16px; box-shadow: 0 2px 10px rgba(0,123,255,0.10); letter-spacing: 0.5px; border: 1px solid #b3d7ff;">
+              Business, Modern, Secure
+            </span>
+        </li>
+        <li style="background: #e3f2fd; padding: 22px 18px; border-radius: 8px; box-shadow: 0 2px 10px rgba(100,181,246,0.07); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.2s, box-shadow 0.2s; text-align: center;">
+          <span style="color: #64b5f6; font-size: 1.3em;">&#128722;</span>
+          E-commerce Site<br>[coming soon]
+            <a href="#" target="_blank" style="margin-top: 10px; color: #7952b3; font-weight: 700; text-decoration: none; border-bottom: 2px solid #7952b3; padding-bottom: 2px; border-radius: 4px; background: linear-gradient(90deg, #ede7f6 60%, #fffbe6 100%); box-shadow: 0 2px 8px rgba(121,85,183,0.10); transition: background 0.2s, color 0.2s, box-shadow 0.2s; text-align: center; display: inline-block;">
+            View Project
+            </a>
+            <span style="display: inline-block; margin-top: 10px; background: linear-gradient(90deg, #fffbe6 60%, #ede7f6 100%); color: #7952b3; font-size: 1em; font-weight: 600; padding: 6px 18px; border-radius: 16px; box-shadow: 0 2px 10px rgba(121,85,183,0.10); letter-spacing: 0.5px; border: 1px solid #b3d7ff;">
+            Shop, Cart, Secure Payment
+            </span>
+        </li>
+        <li style="background: #f1f8e9; padding: 22px 18px; border-radius: 8px; box-shadow: 0 2px 10px rgba(76,175,80,0.07); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.2s, box-shadow 0.2s; text-align: center;">
+          <span style="color: #43a047; font-size: 1.3em;">&#128221;</span>
+          Blog Platform<br>[coming soon]
+          <a href="#" target="_blank" style="margin-top: 10px; color: #43a047; font-weight: 700; text-decoration: none; border-bottom: 2px solid #43a047; padding-bottom: 2px; border-radius: 4px; background: linear-gradient(90deg, #f1f8e9 60%, #fffbe6 100%); box-shadow: 0 2px 8px rgba(67,160,71,0.10); transition: background 0.2s, color 0.2s, box-shadow 0.2s; text-align: center; display: inline-block;">
+            View Project
+          </a>
+          <span style="display: inline-block; margin-top: 10px; background: linear-gradient(90deg, #fffbe6 60%, #f1f8e9 100%); color: #43a047; font-size: 1em; font-weight: 600; padding: 6px 18px; border-radius: 16px; box-shadow: 0 2px 10px rgba(67,160,71,0.10); letter-spacing: 0.5px; border: 1px solid #b3d7ff;">
+            Blog, CMS, Responsive
+          </span>
+        </li>
+        <li style="background: #fff3e0; padding: 22px 18px; border-radius: 8px; box-shadow: 0 2px 10px rgba(255,183,77,0.07); font-size: 1.1rem; font-weight: 500; color: #343a40; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.2s, box-shadow 0.2s; text-align: center;">
+          <span style="color: #ff9800; font-size: 1.3em;">&#127919;</span>
+          Landing Page<br>[coming soon]
+          <a href="#" target="_blank" style="margin-top: 10px; color: #ff9800; font-weight: 700; text-decoration: none; border-bottom: 2px solid #ff9800; padding-bottom: 2px; border-radius: 4px; background: linear-gradient(90deg, #fffbe6 60%, #fff3e0 100%); box-shadow: 0 2px 8px rgba(255,152,0,0.10); transition: background 0.2s, color 0.2s, box-shadow 0.2s; text-align: center; display: inline-block;">
+            View Project
+          </a>
+          <span style="display: inline-block; margin-top: 10px; background: linear-gradient(90deg, #fffbe6 60%, #fff3e0 100%); color: #ff9800; font-size: 1em; font-weight: 600; padding: 6px 18px; border-radius: 16px; box-shadow: 0 2px 10px rgba(255,152,0,0.10); letter-spacing: 0.5px; border: 1px solid #ffe0b2;">
+            Landing, Conversion, Modern
+          </span>
+        </li>
+      </ul>
+      <style>
+        /* Extra Portfolio Section Styles */
+        #portfolio ul li:hover {
+          transform: translateY(-8px) scale(1.04);
+          box-shadow: 0 8px 28px rgba(140,120,255,0.13);
+          background: #fffbe6;
+        }
+        #portfolio a:hover {
+          color: #ff9800;
+        }
+        #portfolio ul,
+        #portfolio ul li,
+        #portfolio h2 {
+          text-align: center !important;
+        }
+        @media (max-width: 700px) {
+          #portfolio ul {
+            grid-template-columns: 1fr;
+            gap: 14px;
+          }
+        }
+      </style>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact" style="background: linear-gradient(120deg, #e0c3fc 0%, #fbc2eb 100%); border-radius: 14px; box-shadow: 0 6px 28px rgba(170,193,238,0.13); margin-bottom: 40px;">
+      <h2 style="font-size: 2rem; font-weight: 800; color: #222; letter-spacing: 1.5px; margin-bottom: 22px; text-shadow: 0 2px 8px rgba(170,193,238,0.08);">
+      Contact Me
+      </h2>
+      <form style="display: flex; flex-direction: column; gap: 18px; max-width: 420px; margin: 0 auto;">
+      <input type="text" placeholder="Your Name" required style="padding: 14px; border-radius: 8px; border: 1.5px solid #b39ddb; font-size: 1.1rem; background: #fffbe6; box-shadow: 0 2px 8px rgba(140,120,255,0.06); transition: border-color 0.2s;">
+      <input type="email" placeholder="Your Email" required style="padding: 14px; border-radius: 8px; border: 1.5px solid #90caf9; font-size: 1.1rem; background: #e3f2fd; box-shadow: 0 2px 8px rgba(100,181,246,0.06); transition: border-color 0.2s;">
+      <textarea rows="5" placeholder="Your Message" required style="padding: 14px; border-radius: 8px; border: 1.5px solid #fbc2eb; font-size: 1.1rem; background: #fce4ec; box-shadow: 0 2px 8px rgba(236,64,122,0.06); resize: vertical; transition: border-color 0.2s;"></textarea>
+      <button type="submit" style="padding: 14px; background: linear-gradient(90deg, #ffb347 0%, #ffcc33 100%); color: #222; font-weight: 700; border: none; border-radius: 25px; font-size: 1.1rem; box-shadow: 0 2px 12px rgba(255,188,66,0.13); cursor: pointer; letter-spacing: 0.5px; transition: background 0.2s, transform 0.2s;">
+        Send Message
+      </button>
+      </form>
+      <style>
+      /* Extra Contact Section Styles */
+      #contact input:focus, #contact textarea:focus {
+        border-color: #ffb347;
+        outline: none;
+        background: #fffbe6;
+      }
+      #contact button:hover {
+        background: linear-gradient(90deg, #ffcc33 0%, #ffb347 100%);
+        transform: translateY(-2px) scale(1.03);
+      }
+      #contact form {
+        animation: fadeInUp 0.7s;
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px);}
+        to { opacity: 1; transform: translateY(0);}
+      }
+      @media (max-width: 600px) {
+        #contact {
+        padding: 24px 6px !important;
+        }
+        #contact form {
+        max-width: 98vw;
+        }
+      }
+      </style>
+    </section>
+  </main>
+
+<footer>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <div style="display: flex; gap: 18px; align-items: center;">
+            <!-- Social Icons -->
+            <a href="https://www.facebook.com/jahidads1" target="_blank" aria-label="Facebook" style="color: #4267B2;">
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+            </a>
+            <a href="https://github.com/jahidads" target="_blank" aria-label="GitHub" style="color: #fffdfd;">
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+        </div>
+        <span style="font-size: 1rem; color: #ffffff; margin-top: 8px;">
+            &copy; <span id="year"></span> Design by jahidads / Web Developer.
+        </span>
+    </div>
+    <script>
+        // Dynamic year update
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <style>
+        footer a:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+            transition: all 0.2s;
+        }
+        footer svg {
+            vertical-align: middle;
+            transition: transform 0.2s;
+        }
+        @media (max-width: 600px) {
+            footer div[style*="flex-direction: column"] {
+                gap: 8px !important;
+            }
+            footer svg {
+                width: 22px;
+                height: 22px;
+            }
+        }
+    </style>
+</footer></a>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
